@@ -1,0 +1,170 @@
+@import url('https://fonts.googleapis.com/css2?family=Tiny5&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:#222;
+    font-family:"Tiny5", sans-serif;
+}
+
+/* CALCULADORA */
+
+.calculator{
+
+    width:320px;
+
+    padding:18px;
+
+    background:#FFC800;
+
+    border-radius:24px;
+
+    box-shadow:
+        12px 12px 0 #4d659d,
+        20px 20px 30px rgba(0,0,0,.25);
+}
+
+/* DISPLAY */
+
+.display{
+
+    height:140px;
+
+    margin-bottom:18px;
+
+    padding:20px;
+
+    border-radius:22px;
+
+    background:#B8C7E4;
+
+    display:flex;
+    align-items:flex-end;
+    justify-content:flex-end;
+
+    font-size:3rem;
+    color:#000;
+}
+
+/* GRID */
+
+.buttons{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:14px;
+}
+
+/* BOTÃO */
+
+.btn{
+
+    position:relative;
+
+    height:48px;
+
+    border:none;
+
+    border-radius:14px;
+
+    cursor:pointer;
+
+    background:transparent;
+
+    font-family:"Tiny5", sans-serif;
+}
+
+/* BASE ESCURA */
+
+.number{
+    background:#A44B00;
+}
+
+.operator{
+    background:#3569B7;
+}
+
+.function{
+    background:#A86E37;
+}
+
+/* CAMADA SUPERIOR */
+
+.btn-top{
+
+    position:absolute;
+
+    inset:0;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:14px;
+
+    transform:translateY(-6px);
+
+    transition:
+        transform .12s ease,
+        filter .12s ease;
+
+    font-size:1.5rem;
+
+    color:#111;
+}
+
+/* CORES */
+
+.number .btn-top{
+    background:#FF7418;
+}
+
+.operator .btn-top{
+    background:#74B9FF;
+}
+
+.function .btn-top{
+    background:#DDB08A;
+}
+
+/* HOVER */
+
+.btn:hover .btn-top{
+
+    transform:
+        translateY(-8px);
+
+    filter:brightness(1.05);
+}
+
+/* CLIQUE */
+
+.btn:active .btn-top{
+
+    transform:translateY(0);
+}
+
+/* SOMBRA */
+
+.btn{
+
+    box-shadow:
+        0 8px 12px rgba(0,0,0,.15);
+}
+
+/* BOTÃO ZERO */
+
+.zero{
+
+    grid-column:span 2;
+}

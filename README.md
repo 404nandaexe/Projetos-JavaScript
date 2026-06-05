@@ -3,7 +3,7 @@ Praticando JavaScript, HTML5 e CSS3.
 
 ## 📱Calculadora
 Calculadora simples com operações matemáticas simples.
-### Ver projeto: 
+### Ver projeto: [Foto Calculadora](./imagens/calculadora.png)
 
 ## ⌚Relógio Digital 
 Relógio Digital com atualização em tempo real com JavaScript.
