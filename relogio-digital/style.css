@@ -1,0 +1,354 @@
+/* ==========================================================================
+   Configurações Globais e Variáveis de Cor
+   ========================================================================== */
+:root {
+    --arcade-blue: #8e99ff;
+    --arcade-dark: #4016b3;
+    --arcade-yellow: #dea8ee;
+    --arcade-red: #ff3366;
+    --arcade-teal: #00f2fe;
+    
+    /* Gradientes do Céu */
+    --bg-day: linear-gradient(180deg, #4facfe 0%, #00f2fe 100%);
+    --bg-night: linear-gradient(180deg, #0c1033 0%, #1b265a 100%);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #0b0f19;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Arial', sans-serif;
+    overflow: hidden;
+}
+
+.scene {
+    width: 100%;
+    max-width: 480px;
+    padding: 20px;
+}
+
+/* ==========================================================================
+   Gabinete do Arcade (Monitor externo)
+   ========================================================================== */
+.monitor {
+    background-color: var(--arcade-blue);
+    border: 8px solid var(--arcade-dark);
+    border-radius: 24px;
+    padding: 20px;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+    position: relative;
+}
+
+/* Letreiro do topo */
+.marquee {
+    background-color: var(--arcade-yellow);
+    border: 4px solid var(--arcade-dark);
+    border-radius: 8px;
+    padding: 10px;
+    text-align: center;
+    margin-bottom: 20px;
+    box-shadow: inset 0 4px 0 rgba(255,255,255,0.4);
+}
+
+.marquee h2 {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 1rem;
+    color: var(--arcade-dark);
+    text-shadow: 1px 1px 0px #fff;
+}
+
+/* ==========================================================================
+   A Tela do Relógio (Com efeito CRT de tubo)
+   ========================================================================== */
+.screen {
+    background: #000;
+    border: 12px solid #1a1a1a;
+    border-radius: 16px;
+    height: 280px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: inset 0 0 40px rgba(0,0,0,0.8);
+}
+
+/* Linhas de TV Antiga (Scanlines) */
+.screen::after {
+    content: " ";
+    position: absolute;
+    top: 0; left: 0; bottom: 0; right: 0;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.15) 50%);
+    background-size: 100% 4px;
+    z-index: 5;
+    pointer-events: none;
+}
+
+/* Conteúdo centralizado */
+.clock-content {
+    position: relative;
+    z-index: 4;
+    text-align: center;
+    color: #ffffff;
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.7);
+}
+
+/* Elements do Relógio */
+#hora {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 1.8rem;
+    margin: 15px 0;
+    letter-spacing: -1px;
+}
+
+#msg {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.75rem;
+    color: var(--arcade-yellow);
+    text-transform: uppercase;
+}
+
+#data {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+footer p {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.6rem;
+    margin-top: 20px;
+    opacity: 0.5;
+}
+
+/* ==========================================================================
+   Dinâmica de Clima (Dia / Noite)
+   ========================================================================== */
+.sky-day, .sky-night {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    transition: opacity 1s ease-in-out;
+}
+
+/* Estilos do Dia */
+.sky-day {
+    background: var(--bg-day);
+    opacity: 0; /* Controlado pelo JS */
+    z-index: 1;
+}
+
+.cloud {
+    background: #fff;
+    position: absolute;
+    border-radius: 4px;
+}
+.cloud::before, .cloud::after { content: ''; position: absolute; background: #fff; border-radius: 4px;}
+
+/* Nuvens em formato de bloco (Pixel) */
+.c1 { width: 50px; height: 12px; top: 20%; left: 10%; }
+.c2 { width: 70px; height: 16px; top: 35%; right: 15%; }
+
+/* Estilos da Noite */
+.sky-night {
+    background: var(--bg-night);
+    opacity: 0; /* Controlado pelo JS */
+    z-index: 2;
+}
+
+.star {
+    background: #fff;
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    box-shadow: 0 0 4px #fff;
+}
+.s1 { top: 15%; left: 25%; }
+.s2 { top: 40%; left: 75%; }
+.s3 { top: 25%; right: 30%; }
+
+/* Classes que o JavaScript vai injetar ativa */
+.screen.is-day .sky-day { opacity: 1; }
+.screen.is-night .sky-night { opacity: 1; }
+
+/* ==========================================================================
+   Painel de Controle Inferior
+   ========================================================================== */
+/* ==========================================================================
+   Painel de Controle Inferior & Botões Pixel Art
+   ========================================================================== */
+/* ==========================================================================
+   A ESTRUTURA DA BANCADA DO ARCADE (PIXEL ART)
+   ========================================================================== */
+
+/* Container geral que engloba as asas e o painel */
+.arcade-dashboard {
+    display: flex;
+    position: relative;
+    width: calc(100% + 40px); /* Expande ligeiramente para fora da tela do monitor */
+    margin-left: -20px;       /* Alinha a expansão nas laterais */
+    margin-top: 10px;
+    z-index: 10;
+}
+
+/* O Miolo Central (Mesa de comandos + Faixa decorativa) */
+.dashboard-center {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    border-top: 4px solid #123475; /* Contorno escuro superior */
+    border-bottom: 5px solid #123475; /* Contorno escuro inferior */
+}
+
+/* A superfície onde ficam os controles */
+.control-table {
+    background-color: #7270eb; /* Mesmo azul do gabinete */
+    padding: 15px 25px 10px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end; /* Alinha o joystick e botões na mesma base */
+    height: 70px;
+}
+
+/* ==========================================================================
+   A FAIXA COLORIDA RETRÔ (Borda frontal da mesa)
+   ========================================================================== */
+.retro-stripe {
+    height: 35px;
+    border-top: 4px solid #123475; /* Linha divisória preta/escura */
+    /* Gradiente linear "duro" simula as divisões do pixel art da foto */
+    background: linear-gradient(to right, 
+        #1d1b83 0%, #605ed4 20%,    /* Amarelo */
+        #ad5dbd 20%, #eb5fe4 35%,  /* Laranja */
+        #db2b0c 35%, #ca6558 50%,  /* Branco (Brilho central) */
+        #2a67da 50%, #00f2fe 75%,  /* Azul Claro */
+        #395cce 75%, #2a75d3 100%  /* Azul Escuro */
+    );
+    box-shadow: inset 0 -4px 0 rgba(0,0,0,0.2); /* Sombra de profundidade */
+}
+
+/* ==========================================================================
+   AS ABAS LATERAIS (Suportes Verdes)
+   ========================================================================== */
+.side-wing {
+    width: 20px;
+    background-color: #97a1b4; /* Tom verde da imagem */
+    border: 4px solid #0d2c66;
+    position: relative;
+}
+
+/* Recorte superior inclinado das abas para dar efeito 3D */
+.side-wing.left {
+    border-radius: 12px 0 0 12px;
+    border-right: none;
+}
+
+.side-wing.right {
+    border-radius: 0 12px 12px 0;
+    border-left: none;
+}
+
+/* Detalhe interno de sombra na asa direita para simular curva */
+.side-wing::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(to right, rgba(0,0,0,0.15), transparent);
+}
+
+/* ==========================================================================
+   CONTROLES: JOYSTICK E BOTÕES QUADRADOS
+   ========================================================================== */
+
+/* Joystick */
+.joystick {
+    position: relative;
+    width: 45px;
+    height: 55px;
+}
+
+.joystick .base {
+    width: 32px;
+    height: 12px;
+    background: #123475; /* Base achatada escura */
+    border-radius: 4px;
+    position: absolute;
+    bottom: 0;
+    left: 4px;
+}
+
+.joystick .stick {
+    width: 6px;
+    height: 30px;
+    background: #123475;
+    position: absolute;
+    bottom: 10px;
+    left: 17px;
+}
+
+/* A cabeça quadrada vermelha com miolo laranja da imagem */
+.joystick .stick::before {
+    content: '';
+    position: absolute;
+    top: -12px;
+    left: -9px;
+    width: 24px;
+    height: 24px;
+    background: #ff3366; /* Vermelho */
+    border: 3px solid #123475;
+    box-shadow: inset -3px -3px 0px #b3002d;
+}
+
+/* Pequeno pixel interno laranja do joystick */
+.joystick .stick::after {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: -1px;
+    width: 6px;
+    height: 6px;
+    background: #f4c223;
+}
+
+/* Botões Retangulares Alinhados */
+.buttons {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 2px; /* Encosta mais perto da faixa colorida */
+}
+
+.button {
+    width: 32px;
+    height: 18px;
+    border: 3px solid #121475;
+    border-radius: 0px;
+}
+
+/* Cores extraídas idênticas à imagem enviada */
+.button.red { 
+    background: #e43532; /* Vermelho/Rosa Queimado */
+    box-shadow: inset 0 -3px 0 #b34d4d;
+}
+
+.button.yellow { 
+    background: #f0a638; /* Amarelo Giz */
+    box-shadow: inset 0 -3px 0 #b0964c;
+}
+
+.button.teal { 
+    background: #59eb15; /* Azul Petróleo Escuro */
+    box-shadow: inset 0 -3px 0 #233140;
+}
+
+/* Feedback de clique */
+.button:active {
+    transform: translateY(2px);
+    box-shadow: none;
+}
