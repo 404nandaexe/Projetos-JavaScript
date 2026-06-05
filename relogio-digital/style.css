@@ -224,13 +224,7 @@ footer p {
     height: 35px;
     border-top: 4px solid #123475; /* Linha divisória preta/escura */
     /* Gradiente linear "duro" simula as divisões do pixel art da foto */
-    background: linear-gradient(to right, 
-        #1d1b83 0%, #605ed4 20%,    /* Amarelo */
-        #ad5dbd 20%, #eb5fe4 35%,  /* Laranja */
-        #db2b0c 35%, #ca6558 50%,  /* Branco (Brilho central) */
-        #2a67da 50%, #00f2fe 75%,  /* Azul Claro */
-        #395cce 75%, #2a75d3 100%  /* Azul Escuro */
-    );
+    background: #36409c;
     box-shadow: inset 0 -4px 0 rgba(0,0,0,0.2); /* Sombra de profundidade */
 }
 
@@ -343,7 +337,7 @@ footer p {
 }
 
 .button.teal { 
-    background: #59eb15; /* Azul Petróleo Escuro */
+    background: #40ad0d; /* Azul Petróleo Escuro */
     box-shadow: inset 0 -3px 0 #233140;
 }
 

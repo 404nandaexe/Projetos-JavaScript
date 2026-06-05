@@ -7,7 +7,7 @@ Calculadora simples com operações matemáticas simples.
 
 ## ⌚Relógio Digital 
 Relógio Digital com atualização em tempo real com JavaScript.
-### Ver projeto:
+### Ver projeto: [Relógio Digital](./imagens/Relógio%20Digital.png)
 
 ## 🔐Gerador de Senhas
 Ferramenta para gerar senhas aleatórias e seguras.
