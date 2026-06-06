@@ -1,0 +1,228 @@
+:root {
+    --bg-color: #eef2f3;
+    --card-bg: #eef2f3;
+    --text-color: #4a5568;
+    --pastel-blue: #9bbad7;
+    --dark-blue: #1d4ed8;
+    --pastel-pink: #f2c6c2;
+    --shadow-light: #ffffff;
+    --shadow-dark: #cbd5e1;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    color: var(--text-color);
+}
+
+.todo-container {
+    background: var(--card-bg);
+    width: 100%;
+    max-width: 420px;
+    padding: 30px;
+    border-radius: 25px;
+    box-shadow: 9px 9px 16px var(--shadow-dark), 
+                -9px -9px 16px var(--shadow-light);
+}
+
+/* Barra do Topo (Data à esquerda e Hora à direita) */
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+    color: #a0aec0;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.title {
+    font-size: 28px;
+    font-weight: 700;
+    color: #2d3748;
+    margin-bottom: 20px;
+}
+
+/* Calendário Semanal */
+.week-calendar {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 25px;
+    padding: 0 5px;
+}
+
+.day-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+}
+
+.day-letter {
+    font-size: 12px;
+    text-transform: lowercase;
+    color: #718096;
+    font-weight: 600;
+}
+
+.day-number {
+    font-size: 14px;
+    font-weight: 500;
+    color: #4a5568;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+/* Dia atual selecionado (Estilo azul escuro da foto) */
+.day-col.active .day-number {
+    background-color: #1a446c;
+    color: white;
+    font-weight: bold;
+    box-shadow: 0 4px 6px rgba(26, 68, 108, 0.2);
+}
+
+/* Área de Inputs */
+.input-section {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+#task-input, #time-input {
+    background: var(--card-bg);
+    border: none;
+    padding: 12px;
+    border-radius: 12px;
+    color: var(--text-color);
+    outline: none;
+    font-size: 14px;
+    box-shadow: inset 3px 3px 6px var(--shadow-dark), 
+                inset -3px -3px 6px var(--shadow-light);
+}
+
+#task-input { flex: 2; }
+#time-input { flex: 1; }
+
+#add-btn {
+    width: 45px;
+    height: 45px;
+    background: var(--card-bg);
+    color: var(--pastel-blue);
+    font-size: 24px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    box-shadow: 4px 4px 8px var(--shadow-dark), 
+                -4px -4px 8px var(--shadow-light);
+}
+
+/* Lista de Tarefas */
+ul { list-style: none; }
+
+li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 15px;
+}
+
+.task-card {
+    flex: 1;
+    background: #e3edf7;
+    padding: 14px 18px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    cursor: pointer;
+    box-shadow: 3px 3px 6px var(--shadow-dark), 
+                -3px -3px 6px var(--shadow-light);
+}
+
+.checkbox {
+    width: 22px;
+    height: 22px;
+    background: #ffffff;
+    border-radius: 50%;
+    position: relative;
+    box-shadow: inset 2px 2px 4px var(--shadow-dark);
+    transition: all 0.3s ease;
+    
+    /* ESTAS DUAS LINHAS EVITAM A DEFORMAÇÃO: */
+    flex-shrink: 0; 
+    min-width: 22px; 
+}
+
+.task-text {
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.task-time {
+    background: #e3edf7;
+    padding: 14px 12px;
+    border-radius: 12px;
+    font-size: 13px;
+    font-weight: bold;
+    color: #798ea4;
+    min-width: 85px;
+    text-align: center;
+    box-shadow: 3px 3px 6px var(--shadow-dark), 
+                -3px -3px 6px var(--shadow-light);
+}
+
+.delete-btn {
+    background: var(--pastel-pink);
+    color: white;
+    border: none;
+    padding: 10px 14px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: bold;
+    display: none;
+}
+
+/* Estados de tarefa completada */
+li.completed .task-card {
+    background: var(--card-bg);
+    box-shadow: inset 3px 3px 6px var(--shadow-dark), 
+                inset -3px -3px 6px var(--shadow-light);
+}
+
+li.completed .checkbox {
+    background: #28a745; /* Verde de confirmação */
+}
+
+li.completed .checkbox::after {
+    content: '✓';
+    color: white;
+    font-size: 12px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+li.completed .task-text {
+    text-decoration: line-through;
+    color: #a0aec0;
+}
+
+li.completed .delete-btn { display: block; }

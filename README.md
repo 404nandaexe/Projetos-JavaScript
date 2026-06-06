@@ -7,7 +7,7 @@ Calculadora simples com operações matemáticas simples.
 
 ## ⌚Relógio Digital 
 Relógio Digital com atualização em tempo real com JavaScript.
-### Ver projeto: [Relógio Digital](./imagens/Relógio%20Digital.png)
+### Ver projeto: [Foto Relógio Digital](./imagens/Relógio%20Digital.png)
 
 ## 🔐Gerador de Senhas
 Ferramenta para gerar senhas aleatórias e seguras.
@@ -15,7 +15,7 @@ Ferramenta para gerar senhas aleatórias e seguras.
 
 ## 📝Lista de Tarefas
 Uma lista para organizar tarefas auxiliando nas atividades diárias.
-### Ver projeto:
+### Ver projeto: [Foto Lista de Tarefas](./imagens/lista%20de%20tarefas.png)
 
 ## 📊Sistema de Notas
 Um mini sistema que tem a finalidade de automatizar a aprovação ou reprovação por meio de notas.

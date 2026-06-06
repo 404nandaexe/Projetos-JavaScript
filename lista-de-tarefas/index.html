@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minha Lista de Tarefas Completa</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="todo-container">
+        <div class="top-bar">
+            <span id="current-date">Ter, 18 Jan 2022</span>
+            <span id="current-clock">01:06:15 PM</span>
+        </div>
+
+        <h2 class="title">To-do List</h2>
+
+        <div class="week-calendar">
+            <div class="day-col" data-day="0"><span class="day-letter">d</span><span class="day-number">24</span></div>
+            <div class="day-col" data-day="1"><span class="day-letter">s</span><span class="day-number">25</span></div>
+            <div class="day-col" data-day="2"><span class="day-letter">t</span><span class="day-number">26</span></div>
+            <div class="day-col" data-day="3"><span class="day-letter">q</span><span class="day-number">27</span></div>
+            <div class="day-col" data-day="4"><span class="day-letter">q</span><span class="day-number">28</span></div>
+            <div class="day-col" data-day="5"><span class="day-letter">s</span><span class="day-number">29</span></div>
+            <div class="day-col" data-day="6"><span class="day-letter">s</span><span class="day-number">30</span></div>
+        </div>
+        
+        <div class="input-section">
+            <input type="text" id="task-input" placeholder="Nova tarefa...">
+            <input type="time" id="time-input">
+            <button id="add-btn">+</button>
+        </div>
+
+        <ul id="task-list">
+            </ul>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
