@@ -12,7 +12,7 @@ Relógio Digital com atualização em tempo real com JavaScript.
 ## 🔐Gerador de Senhas
 Ferramenta para gerar senhas aleatórias e seguras.
 ### Ver projeto: [Foto Senha Escondida](./imagens/gerador-de-senhas-01.png) [](./imagens/gerador-de-senhas-02.png)
-[Foto Senha Visível](./imagens/gerador-de-senhas-01.png)
+### [Foto Senha Visível](./imagens/gerador-de-senhas-01.png)
 
 ## 📝Lista de Tarefas
 Uma lista para organizar tarefas auxiliando nas atividades diárias.
