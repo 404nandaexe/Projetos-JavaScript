@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de Senhas</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="window">
+        <div class="window-header">
+            <span>GERADOR_DE_SENHAS.EXE</span>
+
+            <div class="window-dots">
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+            </div>
+        </div>
+
+        <div class="window-content">
+
+            <div class="character-box">
+                <div class="face" id="characterFace">
+                    <div class="eye">
+                        <div class="pupil"></div>
+                    </div>
+
+                    <div class="eye">
+                        <div class="pupil"></div>
+                    </div>
+                </div>
+            </div>
+
+            <h1>Nova Senha</h1>
+
+            <div class="input-container">
+                <input
+                    type="password"
+                    id="passwordField"
+                    class="password-display"
+                    placeholder="Digite ou gere uma senha"
+                >
+
+                <button
+                    type="button"
+                    id="toggleBtn"
+                    class="toggle-visible"
+                >
+                    VER
+                </button>
+            </div>
+
+            <div class="strength-container">
+                <div id="strengthBar" class="strength-bar"></div>
+            </div>
+
+            <div class="control-group">
+                <label id="lengthLabel">
+                    Tamanho: 6 caracteres
+                </label>
+
+                <input
+                    type="range"
+                    id="lengthSlider"
+                    min="4"
+                    max="20"
+                    value="6"
+                >
+            </div>
+
+            <button
+                class="btn-generate"
+                id="generateBtn"
+            >
+                Gerar!
+            </button>
+
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

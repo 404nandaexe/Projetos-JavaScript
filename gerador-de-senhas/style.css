@@ -1,0 +1,349 @@
+/* ========================================================================== */
+/* VARIÁVEIS */
+/* ========================================================================== */
+
+:root {
+    --bg-color: #F4EBE1;
+    --accent-color: #F7A38B;
+    --dark: #1A1A1A;
+    --white: #FFFFFF;
+
+    --weak: #00FF66;
+    --medium: #FFCC00;
+    --strong: #FF3333;
+}
+
+/* ========================================================================== */
+/* RESET */
+/* ========================================================================== */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial Black', 'Impact', sans-serif;
+}
+
+body {
+    background-color: var(--accent-color);
+    background-image: radial-gradient(var(--dark) 15%, transparent 16%);
+    background-size: 20px 20px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* ========================================================================== */
+/* JANELA */
+/* ========================================================================== */
+
+.window {
+    background: var(--bg-color);
+    border: 4px solid var(--dark);
+    box-shadow: 8px 8px 0 var(--dark);
+
+    width: 100%;
+    max-width: 400px;
+    overflow: hidden;
+}
+
+.window-header {
+    background: var(--dark);
+    color: var(--white);
+
+    padding: 10px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+
+.window-dots {
+    display: flex;
+    gap: 6px;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+
+    background: var(--white);
+
+    border-radius: 50%;
+    border: 2px solid var(--dark);
+}
+
+.window-content {
+    padding: 25px;
+}
+
+/* ========================================================================== */
+/* TÍTULO */
+/* ========================================================================== */
+
+h1 {
+    font-size: 32px;
+    color: var(--dark);
+
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    line-height: 0.9;
+}
+
+/* ========================================================================== */
+/* PERSONAGEM */
+/* ========================================================================== */
+
+.character-box {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 25px;
+}
+
+.face {
+    width: 100px;
+    height: 70px;
+
+    background: var(--white);
+
+    border: 4px solid var(--dark);
+    box-shadow: 5px 5px 0 var(--dark);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+
+    position: relative;
+}
+
+.eye {
+    width: 24px;
+    height: 24px;
+
+    background: var(--white);
+
+    border: 4px solid var(--dark);
+    border-radius: 50%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+}
+
+.pupil {
+    width: 10px;
+    height: 10px;
+
+    background: var(--dark);
+    border-radius: 50%;
+
+    position: absolute;
+
+    transform: translate(-6px, 0);
+    transition: all .2s ease;
+}
+
+.face.looking-at-password .pupil {
+    transform: translate(0, 5px);
+}
+
+/* ========================================================================== */
+/* INPUT */
+/* ========================================================================== */
+
+.input-container {
+    position: relative;
+    margin-bottom: 8px;
+}
+
+.password-display {
+    width: 100%;
+
+    padding: 15px;
+    padding-right: 60px;
+
+    font-size: 18px;
+    font-family: monospace;
+    font-weight: bold;
+
+    background: var(--white);
+    color: var(--dark);
+
+    border: 4px solid var(--dark);
+    outline: none;
+}
+
+.password-display:focus {
+    box-shadow: 4px 4px 0 var(--dark);
+}
+
+.password-display::placeholder {
+    color: #777;
+    font-family: Arial, sans-serif;
+    font-weight: normal;
+}
+
+/* ========================================================================== */
+/* BOTÃO VER */
+/* ========================================================================== */
+
+.toggle-visible {
+    position: absolute;
+
+    right: 10px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    background: var(--bg-color);
+
+    border: 3px solid var(--dark);
+
+    padding: 5px 8px;
+
+    cursor: pointer;
+    font-size: 11px;
+
+    box-shadow: 2px 2px 0 var(--dark);
+}
+
+.toggle-visible:active {
+    box-shadow: 0 0 0 var(--dark);
+    transform: translateY(-50%) translate(2px, 2px);
+}
+
+/* ========================================================================== */
+/* BARRA DE FORÇA */
+/* ========================================================================== */
+
+.strength-container {
+    width: 100%;
+    height: 20px;
+
+    background: var(--white);
+
+    border: 4px solid var(--dark);
+
+    margin-bottom: 25px;
+}
+
+.strength-bar {
+    height: 100%;
+    width: 0;
+
+    transition:
+        width .3s ease,
+        background-color .3s ease;
+}
+
+.strength-bar.weak {
+    width: 30%;
+    background: var(--weak);
+}
+
+.strength-bar.medium {
+    width: 60%;
+    background: var(--medium);
+}
+
+.strength-bar.strong {
+    width: 100%;
+    background: var(--strong);
+}
+
+/* ========================================================================== */
+/* CONTROLES */
+/* ========================================================================== */
+
+.control-group {
+    margin-bottom: 20px;
+}
+
+.control-group label {
+    display: block;
+
+    margin-bottom: 5px;
+
+    font-size: 12px;
+    color: var(--dark);
+}
+
+/* ========================================================================== */
+/* RANGE */
+/* ========================================================================== */
+
+input[type="range"] {
+    width: 100%;
+    background: transparent;
+
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+    height: 10px;
+
+    background: var(--white);
+
+    border: 3px solid var(--dark);
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    width: 15px;
+    height: 22px;
+
+    background: var(--dark);
+
+    border: 2px solid var(--white);
+
+    cursor: pointer;
+
+    margin-top: -8px;
+
+    -webkit-appearance: none;
+}
+
+/* ========================================================================== */
+/* BOTÃO GERAR */
+/* ========================================================================== */
+
+.btn-generate {
+    width: 100%;
+
+    background: var(--dark);
+    color: var(--white);
+
+    border: 4px solid var(--dark);
+
+    padding: 15px;
+
+    font-size: 20px;
+    text-transform: uppercase;
+
+    cursor: pointer;
+
+    box-shadow: 5px 5px 0 var(--accent-color);
+
+    transition:
+        transform .1s,
+        box-shadow .1s;
+}
+
+.btn-generate:hover {
+    background: #2a2a2a;
+}
+
+.btn-generate:active {
+    transform: translate(5px, 5px);
+    box-shadow: 0 0 0 var(--accent-color);
+}
