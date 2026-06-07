@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Notas Escolar</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+
+        <h1>Sistema de Notas</h1>
+
+        <div class="formulario">
+
+            <input
+                type="text"
+                id="nomeAluno"
+                placeholder="Nome do aluno"
+            >
+
+            <button id="btnAdicionar">
+                Adicionar Aluno
+            </button>
+
+        </div>
+
+        <div class="planilha">
+
+            <table>
+
+                <thead>
+                    <tr>
+                        <th>Aluno</th>
+                        <th>Nota 1</th>
+                        <th>Nota 2</th>
+                        <th>Nota 3</th>
+                        <th>Nota 4</th>
+                        <th>Média</th>
+                        <th>Situação</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+
+                <tbody id="tabelaAlunos">
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

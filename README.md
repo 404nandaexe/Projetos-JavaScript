@@ -19,4 +19,4 @@ Uma lista para organizar tarefas auxiliando nas atividades diárias.
 
 ## 📊Sistema de Notas
 Um mini sistema que tem a finalidade de automatizar a aprovação ou reprovação por meio de notas.
-### Ver projeto:
+### Ver projeto: [Sistema de Notas](./videos/sistema-de-notas.mp4)
