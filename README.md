@@ -11,7 +11,8 @@ Relógio Digital com atualização em tempo real com JavaScript.
 
 ## 🔐Gerador de Senhas
 Ferramenta para gerar senhas aleatórias e seguras.
-### Ver projeto: [Foto Gerador de Senhas](./imagens/gerador-de-senhas-01.png) [](./imagens/gerador-de-senhas-02.png)
+### Ver projeto: [Foto Senha Escondida](./imagens/gerador-de-senhas-01.png) [](./imagens/gerador-de-senhas-02.png)
+[Foto Senha Visível](./imagens/gerador-de-senhas-01.png)
 
 ## 📝Lista de Tarefas
 Uma lista para organizar tarefas auxiliando nas atividades diárias.
@@ -19,4 +20,4 @@ Uma lista para organizar tarefas auxiliando nas atividades diárias.
 
 ## 📊Sistema de Notas
 Um mini sistema que tem a finalidade de automatizar a aprovação ou reprovação por meio de notas.
-### Ver projeto: [foto Sistema de Notas](./imagens/sistema-de-notas.png)
+### Ver projeto: [Foto Sistema de Notas](./imagens/sistema-de-notas.png)
